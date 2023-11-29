@@ -2,26 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:themovieapp/views/downloads.dart';
 import 'package:themovieapp/views/home.dart';
-import 'package:themovieapp/views/news_hot.dart';
+import 'package:themovieapp/views/all_movies.dart';
 import 'package:themovieapp/views/search.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Bottom Bar Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: BottomBarExample(),
-    );
-  }
-}
-
 class BottomBarExample extends StatefulWidget {
   @override
   _BottomBarExampleState createState() => _BottomBarExampleState();
@@ -68,7 +50,7 @@ class _BottomBarExampleState extends State<BottomBarExample> {
                   label: 'Search',
                 ),
                 NavigationDestination(
-                  icon: Icon(Iconsax.star,
+                  icon: Icon(Iconsax.screenmirroring,
                       color: _currentIndex == 2 ? Colors.white : const Color.fromARGB(255, 106, 105, 105)),
                   label: 'Favourites',
                 ),
