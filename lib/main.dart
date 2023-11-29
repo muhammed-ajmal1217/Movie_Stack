@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:themovieapp/views/bottom_bar.dart';
-import 'package:themovieapp/views/home.dart';
 
 void main(){
   runApp(const MyApp());

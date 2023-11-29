@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:themovieapp/constants/secret.dart';
 import 'package:themovieapp/helpers/movie_category_title.dart';
 import 'package:themovieapp/helpers/spacing.dart';
+import 'package:themovieapp/views/top_rated.dart';
 import 'package:themovieapp/widgets/top_rated_movie_card.dart';
 import 'package:themovieapp/widgets/upcoming_movie.dart';
 import 'package:themovieapp/service/api_service.dart';
@@ -40,9 +41,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Row(
+          backgroundColor: Colors.transparent,
+    body: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color.fromARGB(255, 49, 7, 46), 
+            Color.fromARGB(255, 2, 6, 24), 
+            Color.fromARGB(255, 4, 9, 34), 
+            ],
+        ),),
+        child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment:CrossAxisAlignment.start ,
+          children: [
+            spacingHeight(40),
+            Row(
           children: [
             Align(
               alignment: Alignment.centerLeft,
@@ -60,19 +76,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-      ),
-          backgroundColor: Colors.transparent,
-    body: Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Color(0xFF000000), Color(0xFF222222)],
-        ),),
-        child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment:CrossAxisAlignment.start ,
-          children: [
             spacingHeight(20),
             Padding(
               padding: const EdgeInsets.only(left: 20),
@@ -150,7 +153,7 @@ class _HomePageState extends State<HomePage> {
             ),
             spacingHeight(20),
             categoryTitle(text: 'Top Rated Movies'),
-            TopRatedMovies(),
+            TopRated(),
             spacingHeight(20),
             categoryTitle(text: 'Up Coming Movies'),
             UpComingMovies(),
