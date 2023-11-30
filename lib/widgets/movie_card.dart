@@ -30,7 +30,7 @@ class MovieCardWidget extends StatelessWidget {
                 children: [
                   Container(
                     width: 200,
-                    height: 300,
+                    height: 250,
                     decoration: BoxDecoration(
                       color: Color.fromARGB(255, 42, 42, 42),
                       borderRadius: BorderRadius.circular(20),

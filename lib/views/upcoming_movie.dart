@@ -4,14 +4,15 @@ import 'package:themovieapp/model/model.dart';
 import 'package:themovieapp/service/api_service.dart';
 import 'package:themovieapp/widgets/movie_card.dart';
 
-class TopRated extends StatelessWidget {
-   TopRated({super.key});
-  final MovieApiService movieApiService = MovieApiService();
+class UpComingMovies extends StatelessWidget {
+   UpComingMovies({super.key});
+
+  MovieApiService upComingMovie =MovieApiService();
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<MovieModel>>(
-            future: movieApiService.getMovies(apiUrl: '${ApiConstants().topRated}${ApiConstants().apiKey}'),
+            future: upComingMovie.getMovies(apiUrl: '${ApiConstants().upComing}${ApiConstants().apiKey}'),
             builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());

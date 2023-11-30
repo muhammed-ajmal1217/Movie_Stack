@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:themovieapp/views/bottom_bar.dart';
+import 'package:provider/provider.dart';
+import 'package:themovieapp/controller/home_provider.dart';
+import 'package:themovieapp/widgets/bottom_bar.dart';
 
 void main(){
   runApp(const MyApp());
@@ -9,9 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: BottomBarExample(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context)=>HomeProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: BottomBarExample(),
+      ),
     );
   }
 }

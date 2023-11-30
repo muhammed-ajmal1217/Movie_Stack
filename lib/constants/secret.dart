@@ -8,4 +8,12 @@ class ApiConstants{
   var topRated='https://api.themoviedb.org/3/movie/top_rated?';
 
   var trending='https://api.themoviedb.org/3/trending/movie/day?';
+
+  var popular='https://api.themoviedb.org/3/movie/popular?';
+
+  var topRatedTv='https://api.themoviedb.org/3/tv/top_rated?';
+
+  var onTheAir='https://api.themoviedb.org/3/tv/on_the_air?';
+
+  var movieList='https://api.themoviedb.org/3/discover/movie?';
 }

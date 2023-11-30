@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:themovieapp/views/downloads.dart';
+import 'package:themovieapp/views/tv_shows_page.dart';
 import 'package:themovieapp/views/home.dart';
 import 'package:themovieapp/views/all_movies.dart';
 import 'package:themovieapp/views/search.dart';
@@ -15,8 +15,8 @@ class _BottomBarExampleState extends State<BottomBarExample> {
   final List<Widget> _pages = [
     HomePage(),
     Search(),
-    NewsHot(),
-    User(),
+    MovieList(),
+    TvShowsPage(),
   ];
 
   @override
@@ -50,14 +50,14 @@ class _BottomBarExampleState extends State<BottomBarExample> {
                   label: 'Search',
                 ),
                 NavigationDestination(
-                  icon: Icon(Iconsax.screenmirroring,
+                  icon: Icon(Iconsax.video,
                       color: _currentIndex == 2 ? Colors.white : const Color.fromARGB(255, 106, 105, 105)),
-                  label: 'Favourites',
+                  label: 'Movies',
                 ),
                 NavigationDestination(
-                  icon: Icon(Iconsax.user,
+                  icon: Icon(Iconsax.video_horizontal,
                       color: _currentIndex == 3 ? Colors.white : const Color.fromARGB(255, 106, 105, 105)),
-                  label: 'Profile',
+                  label: 'TV',
                 ),
               ],
               indicatorColor: Color.fromARGB(255, 17, 17, 17),

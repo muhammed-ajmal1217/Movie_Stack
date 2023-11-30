@@ -4,14 +4,9 @@ import 'package:themovieapp/constants/secret.dart';
 import 'package:themovieapp/model/model.dart';
 import 'package:themovieapp/service/api_service.dart';
 
-class NewsHot extends StatefulWidget {
-  const NewsHot({super.key});
+class MovieList extends StatelessWidget {
+  const MovieList({super.key});
 
-  @override
-  State<NewsHot> createState() => _NewsHotState();
-}
-
-class _NewsHotState extends State<NewsHot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +44,7 @@ class _NewsHotState extends State<NewsHot> {
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              image: DecorationImage(image: NetworkImage('${ApiConstants().imageUrl}${data.posterPath}'),
+                              image: DecorationImage(image: NetworkImage('${ApiConstants().imageUrl}${data.posterPath!}'),
                           fit: BoxFit.cover
                           )),
                           ),
@@ -59,7 +54,8 @@ class _NewsHotState extends State<NewsHot> {
                     SizedBox(height: 20,),
 
                     SizedBox(height: 20,),
-                    Text(data.overview!,style: GoogleFonts.montserrat(color: Colors.white,fontSize: 20),)
+                    Text(data.overview!,style: GoogleFonts.montserrat(color: Colors.white,fontSize: 20),),
+
                   ],
                 ),
               );
