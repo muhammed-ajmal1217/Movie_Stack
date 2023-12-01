@@ -11,9 +11,15 @@ class ApiConstants{
 
   var popular='https://api.themoviedb.org/3/movie/popular?';
 
-  var topRatedTv='https://api.themoviedb.org/3/tv/top_rated?';
+  var topRatedTvHome='https://api.themoviedb.org/3/tv/top_rated?';
 
-  var onTheAir='https://api.themoviedb.org/3/tv/on_the_air?';
+  var onTheAirtvHome='https://api.themoviedb.org/3/tv/on_the_air?';
 
   var movieList='https://api.themoviedb.org/3/discover/movie?';
+
+  var tvList='https://api.themoviedb.org/3/trending/tv/day?';
+
+  var onAirTVList='https://api.themoviedb.org/3/tv/airing_today?';
+
+  var popularTvSeriesTv='https://api.themoviedb.org/3/tv/popular?';
 }

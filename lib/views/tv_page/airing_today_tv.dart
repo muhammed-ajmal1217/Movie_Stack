@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:themovieapp/constants/secret.dart';
 import 'package:themovieapp/model/model.dart';
 import 'package:themovieapp/service/api_service.dart';
-import 'package:themovieapp/widgets/movie_card.dart';
+import 'package:themovieapp/widgets/tv_card_widget.dart';
 
-// ignore: must_be_immutable
-class OnTheAirPage extends StatelessWidget {
-   OnTheAirPage({super.key});
-  MovieApiService ontheAir =MovieApiService();
-
+class OnTheAirPageTv extends StatelessWidget {
+   OnTheAirPageTv({super.key});
+  MovieApiService ontheAir=MovieApiService();
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<MovieModel>>(
-            future: ontheAir.getMovies(apiUrl: '${ApiConstants().onTheAir}${ApiConstants().apiKey}'),
+            future: ontheAir.getMovies(apiUrl: '${ApiConstants().onAirTVList}${ApiConstants().apiKey}'),
             builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
@@ -22,7 +20,7 @@ class OnTheAirPage extends StatelessWidget {
               return Text('No movies available.');
             } else {
               List<MovieModel> onTheAirList = snapshot.data!;
-              return MovieCardWidget(movies: onTheAirList);
+              return TvCardWidget(movies: onTheAirList);
             }
       },
     );

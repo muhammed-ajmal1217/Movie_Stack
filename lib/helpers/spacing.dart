@@ -5,6 +5,7 @@ SizedBox spacingWidth(double width) {
     width: width,
   );
 }
+
 SizedBox spacingHeight(double height) {
   return SizedBox(
     height: height,

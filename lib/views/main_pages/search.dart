@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themovieapp/helpers/colors.dart';
 
 class Search extends StatefulWidget {
   const Search({super.key});
@@ -12,9 +13,9 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
-        child: Text('Search'),
-      ),
+      body: Container(
+        decoration: BoxDecoration(gradient: backgroundGradient()),
+      )
     );
   }
 }

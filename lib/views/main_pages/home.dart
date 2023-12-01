@@ -4,14 +4,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:provider/provider.dart';
 import 'package:themovieapp/constants/secret.dart';
 import 'package:themovieapp/controller/home_provider.dart';
+import 'package:themovieapp/helpers/colors.dart';
 import 'package:themovieapp/helpers/movie_category_title.dart';
 import 'package:themovieapp/helpers/spacing.dart';
-import 'package:themovieapp/views/popular_movies.dart';
-import 'package:themovieapp/views/toprated_tv.dart';
-import 'package:themovieapp/views/top_rated.dart';
-import 'package:themovieapp/views/tv_shows.dart';
-import 'package:themovieapp/views/upcoming_movie.dart';
+import 'package:themovieapp/views/home_page/movies/popular_movies.dart';
+import 'package:themovieapp/views/home_page/tv/toprated_tv.dart';
+import 'package:themovieapp/views/home_page/movies/top_rated_movies.dart';
+import 'package:themovieapp/views/home_page/tv/on_the_air.dart';
+import 'package:themovieapp/views/home_page/movies/upcoming_movie.dart';
 import 'package:themovieapp/model/model.dart';
+import 'package:themovieapp/views/main_pages/details_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
@@ -34,20 +36,12 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.transparent,
     body: Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color.fromARGB(255, 49, 7, 46), 
-            Color.fromARGB(255, 2, 6, 24), 
-            Color.fromARGB(255, 4, 9, 34), 
-            ],
-        ),),
+        gradient: backgroundGradient(),),
         child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment:CrossAxisAlignment.start ,
           children: [
-            spacingHeight(40),
+            spacingHeight(70),
             Row(
           children: [
             Align(
@@ -99,32 +93,38 @@ class _HomePageState extends State<HomePage> {
                       MovieModel movie = homeProvider.movies![itemIndex];
                       return ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Container(
-                          width: 400,
-                          color: Color.fromARGB(255, 50, 50, 50),
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Stack(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
-                                          image: NetworkImage(
-                                              '${ApiConstants().imageUrl}${movie.posterPath}'),
-                                          fit: BoxFit.fill)),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    movie.title ?? 'No data is available',
-                                    style: GoogleFonts.montserrat(
-                                        color: Colors.white,
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w700),
+                        child: GestureDetector(
+                          onTap: (){
+                            final detailsDatas=homeProvider.movies![itemIndex];
+                            Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>DetailsPage(details: detailsDatas,name:movie.title ,backgroundImage: movie.backdropPath!,)));
+                          },
+                          child: Container(
+                            width: 400,
+                            decoration: BoxDecoration(gradient: carousalBackgroundColor(),),
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                        image: DecorationImage(
+                                            image: NetworkImage(
+                                                '${ApiConstants().imageUrl}${movie.posterPath}'),
+                                            fit: BoxFit.fill)),
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      movie.title ?? 'No data is available',
+                                      style: GoogleFonts.montserrat(
+                                          color: Colors.white,
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                     }
                   },
                 ),
-              ),
+                             ),
             ),
             spacingHeight(10),
             categoryTitle(text: 'Top Rated Movies'),
@@ -164,4 +164,8 @@ class _HomePageState extends State<HomePage> {
       ),
     ));
   }
+
+
+
+
 }
