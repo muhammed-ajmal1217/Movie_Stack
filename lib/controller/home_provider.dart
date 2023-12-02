@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:themovieapp/constants/secret.dart';
-import 'package:themovieapp/model/model.dart';
+import 'package:themovieapp/model/movie_model.dart';
 import 'package:themovieapp/service/api_service.dart';
 
 class HomeProvider extends ChangeNotifier{

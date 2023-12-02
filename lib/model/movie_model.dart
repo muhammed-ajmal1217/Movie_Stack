@@ -7,12 +7,12 @@ class MovieModel {
   String? originalTitle;
   String? overview;
   String? posterPath;
-  String? releaseDate;
   double? voteAverage;
   String? name;
   String? releasedate;
   String? firstAirDate;
   double? popularity;
+  int? voterCount;
 
   MovieModel({
     this.backdropPath,
@@ -22,12 +22,12 @@ class MovieModel {
     this.originalTitle,
     this.overview,
     this.posterPath,
-    this.releaseDate,
     this.voteAverage,
     this.name,
     this.releasedate,
     this.firstAirDate,
     this.popularity,
+    this.voterCount
   });
 
   factory MovieModel.fromJson(Map<String, dynamic> json) {
@@ -39,12 +39,12 @@ class MovieModel {
       originalTitle: json['original_title']?? 'no data',
       overview: json['overview'],
       posterPath: json['poster_path']?? 'no data',
-      releaseDate: json['release_date']?? 'no data',
       voteAverage: json['vote_average']?? 'no data',
       name: json['name']?? 'no data',
       releasedate: json['release_date']?? 'no data',
       firstAirDate: json['first_air_date']??'no data',
       popularity: json['popularity']?? 'no data',
+      voterCount: json['vote_count']??'no data',
     );
   }
 }

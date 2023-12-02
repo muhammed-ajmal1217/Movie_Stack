@@ -5,7 +5,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:themovieapp/constants/secret.dart';
 import 'package:themovieapp/helpers/colors.dart';
 import 'package:themovieapp/helpers/spacing.dart';
-import 'package:themovieapp/model/model.dart';
+import 'package:themovieapp/model/movie_model.dart';
 import 'package:themovieapp/service/api_service.dart';
 
 class MovieList extends StatelessWidget {
@@ -35,7 +35,7 @@ class MovieList extends StatelessWidget {
                   child: FutureBuilder(
                       future: MovieApiService().getMovies(
                           apiUrl:
-                              '${ApiConstants().movieList}${ApiConstants().apiKey}'),
+                              '${ApiConstants().popular}${ApiConstants().apiKey}'),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
@@ -108,7 +108,7 @@ class MovieList extends StatelessWidget {
                                           ),
                                           spacingHeight(10),
                                           Text(
-                                            "Release date : ${data.releaseDate}",
+                                            "Release date : ${data.releasedate}",
                                             style: GoogleFonts.montserrat(
                                               color: Colors.white,
                                               fontSize: 12,
