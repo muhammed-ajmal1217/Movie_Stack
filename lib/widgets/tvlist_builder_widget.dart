@@ -5,11 +5,11 @@ import 'package:themovieapp/service/api_service.dart';
 import 'package:themovieapp/widgets/tv_card_widget.dart';
 
 class TvListBuilder extends StatelessWidget {
-  final MovieApiService movieApiService;
+  final ApiService tvApiService;
   final String apiUrl;
   const TvListBuilder({
     super.key,
-    required this.movieApiService,
+    required this.tvApiService,
     required this.apiUrl,
   });
 
@@ -17,7 +17,7 @@ class TvListBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<MovieModel>>(
-                future: movieApiService.getMovies(apiUrl: '${apiUrl}${ApiConstants().apiKey}'),
+                future: tvApiService.getMovies(apiUrl: '${apiUrl}${ApiConstants().apiKey}'),
                 builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());

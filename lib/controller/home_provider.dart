@@ -4,7 +4,7 @@ import 'package:themovieapp/model/movie_model.dart';
 import 'package:themovieapp/service/api_service.dart';
 
 class HomeProvider extends ChangeNotifier{
-  final MovieApiService movieApiService = MovieApiService();
+  final ApiService movieApiService = ApiService();
     List<MovieModel>? movies = [];
     Future<void> getMoviestoHome() async {
     try {

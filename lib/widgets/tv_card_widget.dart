@@ -96,7 +96,7 @@ class TvCardWidget extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>DetailsPage(
                 type: "tv",
                 backgroundImage: movie.posterPath,
-                date: DateTime.parse(movie.firstAirDate!),
+                date: movie.firstAirDate!,
                 id: movie.id,
                 name: movie.name,
                 overview: movie.overview,

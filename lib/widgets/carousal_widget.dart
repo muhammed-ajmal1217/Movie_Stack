@@ -54,7 +54,7 @@ class CarousalWidget extends StatelessWidget {
                             overview: movie.overview!,
                             voteraverage: movie.voteAverage,
                             votercount: movie.voterCount,
-                            date: DateTime.parse(movie.releasedate!),
+                            date: movie.releasedate!,
     
                             )));
                   },

@@ -5,7 +5,7 @@ import 'package:themovieapp/service/api_service.dart';
 import 'package:themovieapp/widgets/movie_card.dart';
 
 class MovieListBuilder extends StatelessWidget {
-  final MovieApiService movieApiService;
+  final ApiService movieApiService;
   final String apiUrl;
   const MovieListBuilder({
     super.key,

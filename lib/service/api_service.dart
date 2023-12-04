@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:themovieapp/model/cast_model.dart';
 import 'package:themovieapp/model/movie_model.dart';
 
-class MovieApiService{
+class ApiService{
 Dio dio=Dio();
 Future<List<MovieModel>> getMovies({required var apiUrl}) async {
   var url= apiUrl;

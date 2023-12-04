@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     Provider.of<HomeProvider>(context, listen: false).getMoviestoHome();
   }
-  MovieApiService movieApiService=MovieApiService();
+  ApiService apiService=ApiService();
   ApiConstants apiConstants=ApiConstants();
   @override
   Widget build(BuildContext context) {
@@ -75,23 +75,23 @@ class _HomePageState extends State<HomePage> {
                 spacingHeight(10),
 
                 categoryTitle(text: 'Top Rated Movies'),
-                MovieListBuilder(movieApiService: movieApiService,apiUrl:apiConstants.topRated),
+                MovieListBuilder(movieApiService: apiService,apiUrl:apiConstants.topRated),
                 spacingHeight(10),
                 
                 categoryTitle(text: 'Up Coming Movies'),
-                MovieListBuilder(movieApiService: movieApiService, apiUrl: apiConstants.upComing),
+                MovieListBuilder(movieApiService: apiService, apiUrl: apiConstants.upComing),
                 spacingHeight(10),
                 
                 categoryTitle(text: 'Popular Movies'),
-                MovieListBuilder(movieApiService: movieApiService, apiUrl: apiConstants.popular),
+                MovieListBuilder(movieApiService: apiService, apiUrl: apiConstants.popular),
                 spacingHeight(10),
                 
                 categoryTitle(text: 'Top Rated TV Series List'),
-                TvListBuilder(movieApiService: movieApiService, apiUrl: apiConstants.topRatedTvHome),
+                TvListBuilder(tvApiService: apiService, apiUrl: apiConstants.topRatedTvHome),
                 spacingHeight(10),
                 
                 categoryTitle(text: 'On the Air Series List'),
-                TvListBuilder(movieApiService: movieApiService, apiUrl: apiConstants.onTheAirtvHome),
+                TvListBuilder(tvApiService: apiService, apiUrl: apiConstants.onTheAirtvHome),
               ],
             ),
           ),

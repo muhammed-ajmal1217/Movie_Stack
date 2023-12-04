@@ -66,8 +66,8 @@ class SearchScreen extends StatelessWidget {
                                           type: 'movie',
                                           backgroundImage:
                                               searchdata.posterPath,
-                                          date: DateTime.parse(
-                                              searchdata.releasedate!),
+                                          date: 
+                                              searchdata.releasedate!,
                                           id: searchdata.id,
                                           name: searchdata.title,
                                           overview: searchdata.overview,

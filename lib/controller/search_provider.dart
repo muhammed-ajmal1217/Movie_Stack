@@ -5,7 +5,7 @@ import 'package:themovieapp/service/api_service.dart';
 
 class SearchProvider extends ChangeNotifier {
   final TextEditingController queryController = TextEditingController();
-  final MovieApiService apiService = MovieApiService();
+  final ApiService apiService = ApiService();
   List<MovieModel> searchResults = [];
   void searchMovies(String query) async {
     // String query = queryController.text.trim();

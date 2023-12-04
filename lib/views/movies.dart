@@ -7,6 +7,7 @@ import 'package:themovieapp/helpers/colors.dart';
 import 'package:themovieapp/helpers/spacing.dart';
 import 'package:themovieapp/model/movie_model.dart';
 import 'package:themovieapp/service/api_service.dart';
+import 'package:themovieapp/views/details_page.dart';
 
 class MovieList extends StatelessWidget {
   const MovieList({super.key});
@@ -33,7 +34,7 @@ class MovieList extends StatelessWidget {
                 ),
                 Expanded(
                   child: FutureBuilder(
-                      future: MovieApiService().getMovies(
+                      future: ApiService().getMovies(
                           apiUrl:
                               '${ApiConstants().popular}${ApiConstants().apiKey}'),
                       builder: (context, snapshot) {
@@ -48,29 +49,43 @@ class MovieList extends StatelessWidget {
                             child: Text('No data available'),
                           );
                         } else {
-                          List<MovieModel> all = snapshot.data!;
+                          List<MovieModel> movie = snapshot.data!;
                           return ListView.separated(
                             itemBuilder: (context, index) {
-                              final data = all[index];
+                              final movies = movie[index];
                               return Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      gradient: carousalBackgroundColor()
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(1.1),
-                                      child: Container(
-                                        height: height*0.18,
-                                        width: width*0.27,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(14),
-                                          image: DecorationImage(
-                                            image: NetworkImage(
-                                                '${ApiConstants().imageUrl}${data.posterPath!}'),
-                                            fit: BoxFit.cover,
+                                  GestureDetector(
+                                    onTap: (){
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>DetailsPage(
+                                        type: 'movie',
+                                        backgroundImage:movies.posterPath,
+                                        date: movies.releasedate,
+                                        name: movies.title,
+                                        id: movies.id,
+                                        overview: movies.overview,
+                                        voteraverage: movies.voteAverage,
+                                        votercount: movies.voterCount,
+                                        )));
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        gradient: carousalBackgroundColor()
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(1.1),
+                                        child: Container(
+                                          height: height*0.18,
+                                          width: width*0.27,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(14),
+                                            image: DecorationImage(
+                                              image: NetworkImage(
+                                                  '${ApiConstants().imageUrl}${movies.posterPath!}'),
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -84,7 +99,7 @@ class MovieList extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            '${data.title!}',
+                                            '${movies.title!}',
                                             style: GoogleFonts.montserrat(
                                               color: Colors.white,
                                               fontSize: 15,
@@ -102,13 +117,13 @@ class MovieList extends StatelessWidget {
                                             },
                                             itemCount: 5,
                                             itemSize: 12,
-                                            rating: data.voteAverage! / 2,
+                                            rating: movies.voteAverage! / 2,
                                             unratedColor:
                                                 Color.fromARGB(255, 78, 78, 78),
                                           ),
                                           spacingHeight(10),
                                           Text(
-                                            "Release date : ${data.releasedate}",
+                                            "Release date : ${movies.releasedate}",
                                             style: GoogleFonts.montserrat(
                                               color: Colors.white,
                                               fontSize: 12,
@@ -116,7 +131,7 @@ class MovieList extends StatelessWidget {
                                           ),
                                           spacingHeight(10),
                                           Text(
-                                            "Language : ${data.originalLanguage}",
+                                            "Language : ${movies.originalLanguage}",
                                             style: GoogleFonts.montserrat(
                                               color: Colors.white,
                                               fontSize: 12,
@@ -124,7 +139,7 @@ class MovieList extends StatelessWidget {
                                           ),
                                           spacingHeight(10),
                                           Text(
-                                            "Popularity : ${data.popularity}",
+                                            "Popularity : ${movies.popularity}",
                                             style: GoogleFonts.montserrat(
                                               color: Colors.white,
                                               fontSize: 12,
@@ -137,7 +152,7 @@ class MovieList extends StatelessWidget {
                                 ],
                               );
                             },
-                            itemCount: all.length,
+                            itemCount: movie.length,
                             separatorBuilder: (context, index) {
                               return Divider(
                                 color: Colors.white,

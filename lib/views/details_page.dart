@@ -8,6 +8,7 @@ import 'package:themovieapp/helpers/spacing.dart';
 import 'package:themovieapp/service/api_service.dart';
 import 'package:themovieapp/widgets/cast_list_builder_widget.dart';
 import 'package:themovieapp/widgets/similar_movie_list_builder_widget.dart';
+import 'package:themovieapp/widgets/similar_tv_list_builder_widget.dart';
 
 // ignore: must_be_immutable
 class DetailsPage extends StatelessWidget {
@@ -15,7 +16,7 @@ class DetailsPage extends StatelessWidget {
   String? name;
   dynamic backgroundImage;
   String? overview;
-  DateTime? date;
+  String? date;
   double? voteraverage;
   int? votercount;
   int? id;
@@ -32,23 +33,24 @@ class DetailsPage extends StatelessWidget {
       this.id});
 
   ApiConstants apiconst = ApiConstants();
-  MovieApiService movieApi = MovieApiService();
+  ApiService movieApi = ApiService();
+  
   @override
   Widget build(BuildContext context) {
-    DateTime? releasedate;
+    DateTime? releaseDate;
 
     if (date != null) {
       try {
-        releasedate = date!;
+        releaseDate = DateTime.parse(date!);
       } catch (e) {
-        releasedate = null;
+        releaseDate = null;
       }
     } else {
-      releasedate = DateTime(0000, 0, 00);
+      releaseDate = DateTime(0000, 0, 00);
     }
 
-    String formattedDate = releasedate != null
-        ? DateFormat('yyyy').format(releasedate)
+    String formattedDate = releaseDate  != null
+        ? DateFormat('yyyy').format(releaseDate)
         : 'Date Not Available';
 
     var height = MediaQuery.of(context).size.height;
@@ -150,7 +152,7 @@ class DetailsPage extends StatelessWidget {
                               .withOpacity(0.4),
                           child: Icon(
                             Icons.arrow_back,
-                            color: const Color.fromARGB(255, 66, 65, 65),
+                            color: Color.fromARGB(255, 0, 0, 0),
                           ),
                         ),
                       ),
@@ -184,11 +186,12 @@ class DetailsPage extends StatelessWidget {
                         style: GoogleFonts.montserrat(
                             color: Colors.white, fontSize: 16)),
                     spacingHeight(10),
-                    SimilarMovieListBuilder(
-                        movieApi: movieApi,
-                        apiconst: apiconst,
-                        type: type,
-                        id: id)
+                    navigateTodetails(),
+                    // SimilarMovieListBuilder(
+                    //     movieApi: movieApi,
+                    //     apiconst: apiconst,
+                    //     type: type,
+                    //     id: id)
                   ],
                 ),
               )
@@ -197,5 +200,18 @@ class DetailsPage extends StatelessWidget {
         ),
       ),
     );
+  }
+  navigateTodetails(){
+    if(type=='movie'){
+      return SimilarMovieListBuilder(
+                        movieApi: movieApi,
+                        apiconst: apiconst,
+                        type: type,
+                        id: id);
+    }else if(type=='tv'){
+      return SimilarTvListBuilder(tvApi: movieApi, apiconst: apiconst, type: type, id: id);
+    }else{
+      throw Exception('Data is not Available');
+    }
   }
 }

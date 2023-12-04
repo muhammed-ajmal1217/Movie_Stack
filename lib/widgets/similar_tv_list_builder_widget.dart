@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:themovieapp/constants/secret.dart';
 import 'package:themovieapp/model/movie_model.dart';
 import 'package:themovieapp/service/api_service.dart';
-import 'package:themovieapp/widgets/movie_card.dart';
+import 'package:themovieapp/widgets/tv_card_widget.dart';
 
-class SimilarMovieListBuilder extends StatelessWidget {
-  final ApiService movieApi;
+class SimilarTvListBuilder extends StatelessWidget {
+  final ApiService tvApi;
   final ApiConstants apiconst;
   final String? type;
   final int? id;
-  const SimilarMovieListBuilder({
+  const SimilarTvListBuilder({
     super.key,
-    required this.movieApi,
+    required this.tvApi,
     required this.apiconst,
     required this.type,
     required this.id,
   });
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(future:movieApi.getSimilarMovies(similarUrl: '${apiconst.base}/${type}/${id}${apiconst.similarMovieUrl}${apiconst.apiKey}'),
+    return FutureBuilder(future:tvApi.getSimilarMovies(similarUrl: '${apiconst.base}/${type}/${id}${apiconst.similarMovieUrl}${apiconst.apiKey}'),
     builder: (context, snapshot) {
       if (snapshot.connectionState == ConnectionState.waiting) {
         return Center(
@@ -32,7 +32,7 @@ class SimilarMovieListBuilder extends StatelessWidget {
         );
       } else {
         List<MovieModel> similarMovie = snapshot.data!;
-        return MovieCardWidget( movies: similarMovie, );
+        return TvCardWidget( movies: similarMovie, );
       }
     });
   }

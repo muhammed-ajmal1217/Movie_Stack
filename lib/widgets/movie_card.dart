@@ -81,7 +81,7 @@ class MovieCardWidget extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>DetailsPage(
                 type: "movie",
                 backgroundImage: movie.posterPath!,
-                 date: DateTime.parse(movie.releasedate!),
+                 date: movie.releasedate!,
                  name: movie.title,
                  overview: movie.overview,
                  voteraverage: movie.voteAverage,

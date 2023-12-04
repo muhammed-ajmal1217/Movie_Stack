@@ -19,7 +19,7 @@ class CastListBuilderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: MovieApiService().getCasts(
+        future: ApiService().getCasts(
             castsUrl:
                 '${apiconst.base}/${type}/${id}${apiconst.castendPoint}${apiconst.apiKey}'),
         builder: (context, snapshot) {
