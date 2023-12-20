@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:themovieapp/constants/secret.dart';
 import 'package:themovieapp/controller/home_provider.dart';
 import 'package:themovieapp/helpers/colors.dart';
-import 'package:themovieapp/helpers/movie_category_title.dart';
+import 'package:themovieapp/helpers/texts.dart';
 import 'package:themovieapp/helpers/spacing.dart';
 import 'package:themovieapp/service/api_service.dart';
 import 'package:themovieapp/widgets/carousal_widget.dart';

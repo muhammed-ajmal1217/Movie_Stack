@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
 import 'package:provider/provider.dart';
@@ -32,10 +33,13 @@ class SearchScreen extends StatelessWidget {
                     },
                     controller: search.queryController,
                     decoration: InputDecoration(
+                      helperStyle: TextStyle(color: Colors.white),
                       hintText: 'Search..',
                       hintStyle: TextStyle(color: Colors.grey),
                       labelStyle: TextStyle(color: Colors.white), 
                       prefixIcon: const Icon(Iconsax.search_favorite),
+                      fillColor: Colors.grey.withOpacity(0.5),
+                      filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -45,9 +49,15 @@ class SearchScreen extends StatelessWidget {
                 SizedBox(
                   height: size.height,
                   child: search.searchResults.isEmpty
-                      ? const Center(
-                          child: Text('Search....',style: TextStyle(color: Colors.grey),),
-                        )
+                      ? Padding(
+                        padding: const EdgeInsets.only(top: 250),
+                        child: Column(
+                          children: [
+                            Icon(Iconsax.search_favorite,size: 80,color: Colors.white.withOpacity(0.2),),
+                            Text('Search..',style: GoogleFonts.lato(color: Colors.white.withOpacity(0.2),fontSize: 25),),
+                          ],
+                        ),
+                      )
                       : GridView.builder(
                           itemCount: search.searchResults.length,
                           gridDelegate:
@@ -89,7 +99,7 @@ class SearchScreen extends StatelessWidget {
                                                 "${ApiConstants().imageUrl}${searchdata.posterPath}"),
                                             fit: BoxFit.fill,
                                             filterQuality: FilterQuality.high),
-                                        color: Color.fromARGB(255, 10, 22, 112),
+                                        color: Color.fromARGB(255, 2, 11, 49),
                                         borderRadius: BorderRadius.circular(19)),
                                   ),
                                 ),

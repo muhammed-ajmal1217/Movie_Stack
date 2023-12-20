@@ -80,6 +80,7 @@ class MovieList extends StatelessWidget {
                                           height: height*0.18,
                                           width: width*0.27,
                                           decoration: BoxDecoration(
+                                            color: Color.fromARGB(255, 2, 11, 49),
                                             borderRadius: BorderRadius.circular(14),
                                             image: DecorationImage(
                                               image: NetworkImage(

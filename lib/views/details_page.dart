@@ -56,6 +56,7 @@ class DetailsPage extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 4, 2, 17), 
       body: Container(
         height: double.infinity,
         decoration: BoxDecoration(gradient: backgroundGradient()),

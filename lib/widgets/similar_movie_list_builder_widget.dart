@@ -28,7 +28,7 @@ class SimilarMovieListBuilder extends StatelessWidget {
         return Center(child: Text('Error${snapshot.error}'));
       } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
         return Center(
-          child: Text('Data is not Available'),
+          child: Text('Data is not Available',style: TextStyle(color: Colors.white),),
         );
       } else {
         List<MovieModel> similarMovie = snapshot.data!;

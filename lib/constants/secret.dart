@@ -28,4 +28,6 @@ class ApiConstants{
   final castendPoint = "/credits?";
 
   final similarMovieUrl = "/similar?";
+
+  final search='https://api.themoviedb.org/3/search/movie?query';
 }

@@ -6,7 +6,7 @@ import 'package:themovieapp/model/movie_model.dart';
 
 class ApiService{
 Dio dio=Dio();
-Future<List<MovieModel>> getMovies({required var apiUrl}) async {
+Future<List<MovieModel>> getMovies({required String apiUrl}) async {
   var url= apiUrl;
   try {
     Response response = await dio.get(url);
@@ -25,7 +25,7 @@ Future<List<MovieModel>> getMovies({required var apiUrl}) async {
     throw Exception('Failed to load Movies: $error');
   }
 }
-Future<List<CastModel>> getCasts({required var castsUrl}) async {
+Future<List<CastModel>> getCasts({required String castsUrl}) async {
   var url= castsUrl;
   try {
     Response response = await dio.get(url);
@@ -43,7 +43,7 @@ Future<List<CastModel>> getCasts({required var castsUrl}) async {
     throw Exception('Failed to load Movies: $error');
   }
 }
-Future<List<MovieModel>> getSimilarMovies({required var similarUrl}) async {
+Future<List<MovieModel>> getSimilarMovies({required String similarUrl}) async {
   var url= similarUrl;
   try {
     Response response = await dio.get(url);
@@ -61,7 +61,7 @@ Future<List<MovieModel>> getSimilarMovies({required var similarUrl}) async {
     throw Exception('Failed to load Movies: $error');
   }
 }
-  Future<List<MovieModel>> searchMovie({required searchurl}) async {
+  Future<List<MovieModel>> searchMovie({required String searchurl}) async {
     try {
       final response = await dio.get(searchurl);
       if (response.statusCode == 200) {

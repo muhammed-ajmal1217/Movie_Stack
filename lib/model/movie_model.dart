@@ -15,19 +15,19 @@ class MovieModel {
   int? voterCount;
 
   MovieModel({
-    this.backdropPath,
-    this.id,
-    this.title,
-    this.originalLanguage,
-    this.originalTitle,
-    this.overview,
-    this.posterPath,
-    this.voteAverage,
-    this.name,
-    this.releasedate,
-    this.firstAirDate,
-    this.popularity,
-    this.voterCount
+    required this.backdropPath,
+    required this.id,
+    required this.title,
+    required this.originalLanguage,
+    required this.originalTitle,
+    required this.overview,
+    required this.posterPath,
+    required this.voteAverage,
+    required this.name,
+    required this.releasedate,
+    required this.firstAirDate,
+    required this.popularity,
+    required this.voterCount
   });
 
   factory MovieModel.fromJson(Map<String, dynamic> json) {

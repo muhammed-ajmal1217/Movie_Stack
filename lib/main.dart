@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:themovieapp/controller/bottom_bar_provider.dart';
 import 'package:themovieapp/controller/home_provider.dart';
 import 'package:themovieapp/controller/search_provider.dart';
+import 'package:themovieapp/views/splash.dart';
 import 'package:themovieapp/widgets/bottom_bar.dart';
 
 void main(){
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: BottomBarExample(),
+        home: SplashScreen(),
       ),
     );
   }

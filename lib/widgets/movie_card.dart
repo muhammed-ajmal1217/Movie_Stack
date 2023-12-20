@@ -12,7 +12,7 @@ class MovieCardWidget extends StatelessWidget {
     required this.movies,
 
   });
-  final List<MovieModel> movies;
+  final List<MovieModel>? movies;
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +22,11 @@ class MovieCardWidget extends StatelessWidget {
       height: 230,
       width: double.infinity,
       child: ListView.builder(
-        itemCount: movies.length,
+        itemCount: movies!.length,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
-          MovieModel movie = movies[index];       
+          MovieModel movie = movies![index];       
           return GestureDetector(
             child: Row(
               children: [
@@ -43,7 +43,7 @@ class MovieCardWidget extends StatelessWidget {
                           width: width*0.44,
                           height: height*0.27,
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 42, 42, 42),
+                            color: Color.fromARGB(255, 2, 11, 49),
                             borderRadius: BorderRadius.circular(19),
                             image: DecorationImage(
                               image: NetworkImage('${ApiConstants().imageUrl}${movie.posterPath}'),
@@ -65,8 +65,8 @@ class MovieCardWidget extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(movie.title??'No data vailable',style: GoogleFonts.poppins(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w500),),
-                                Text(movie.releasedate??'No data vailable',style: GoogleFonts.poppins(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w500),),                      
+                                Text(movie.title!,style: GoogleFonts.poppins(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w500),),
+                                Text(movie.releasedate!,style: GoogleFonts.poppins(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w500),),                      
                               ],
                             ),
                           ),
@@ -82,11 +82,11 @@ class MovieCardWidget extends StatelessWidget {
                 type: "movie",
                 backgroundImage: movie.posterPath!,
                  date: movie.releasedate!,
-                 name: movie.title,
-                 overview: movie.overview,
-                 voteraverage: movie.voteAverage,
-                 votercount: movie.voterCount,
-                 id: movie.id,
+                 name: movie.title!,
+                 overview: movie.overview!,
+                 voteraverage: movie.voteAverage!,
+                 votercount: movie.voterCount!,
+                 id: movie.id!,
               )));
             },
           );

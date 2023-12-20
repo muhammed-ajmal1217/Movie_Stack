@@ -69,6 +69,7 @@ class CarousalWidget extends StatelessWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 2, 11, 49),
                                 borderRadius:
                                     BorderRadius.circular(15),
                                 image: DecorationImage(
@@ -98,7 +99,7 @@ class CarousalWidget extends StatelessWidget {
                 width: 400,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(255, 42, 42, 42),
+                  color: Color.fromARGB(255, 2, 11, 49),
                 ),
                 child: Center(child: CircularProgressIndicator()),
               );

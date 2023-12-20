@@ -6,14 +6,7 @@ import 'package:themovieapp/views/tv_shows_page.dart';
 import 'package:themovieapp/views/home.dart';
 import 'package:themovieapp/views/movies.dart';
 import 'package:themovieapp/views/search.dart';
-class BottomBarExample extends StatefulWidget {
-  @override
-  _BottomBarExampleState createState() => _BottomBarExampleState();
-}
-
-class _BottomBarExampleState extends State<BottomBarExample> {
-  
-
+class BottomNavigation extends StatelessWidget {
   final List<Widget> _pages = [
     HomePage(),
     SearchScreen(),
