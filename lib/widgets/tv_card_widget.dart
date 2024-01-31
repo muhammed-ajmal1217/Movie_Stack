@@ -7,7 +7,7 @@ import 'package:themovieapp/model/movie_model.dart';
 import 'package:themovieapp/views/details_page.dart';
 
 class TvCardWidget extends StatelessWidget {
-  TvCardWidget({
+  const TvCardWidget({
     super.key,
     required this.movies,
   });
@@ -43,7 +43,7 @@ class TvCardWidget extends StatelessWidget {
                          width: width*0.44,
                           height: height*0.27,
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 2, 11, 49),
+                            color: const Color.fromARGB(255, 2, 11, 49),
                             borderRadius: BorderRadius.circular(19),
                             image: DecorationImage(
                               image: NetworkImage(
@@ -59,7 +59,7 @@ class TvCardWidget extends StatelessWidget {
                       height: height*0.08,
                       decoration: BoxDecoration(
                           color: Colors.grey[900]!.withOpacity(0.5),
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                               bottomRight: Radius.circular(20))),
                       child: SingleChildScrollView(

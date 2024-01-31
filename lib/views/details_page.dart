@@ -56,14 +56,14 @@ class DetailsPage extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 4, 2, 17), 
+      backgroundColor: const Color.fromARGB(255, 4, 2, 17), 
       body: Container(
         height: double.infinity,
         decoration: BoxDecoration(gradient: backgroundGradient()),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: height * 0.52,
                 child: Stack(
                   children: [
@@ -105,7 +105,7 @@ class DetailsPage extends StatelessWidget {
                             ),
                             spacingWidth(10),
                             Text(
-                              '(${formattedDate})',
+                              '($formattedDate)',
                               style: GoogleFonts.lato(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -122,7 +122,7 @@ class DetailsPage extends StatelessWidget {
                         children: [
                           RatingBarIndicator(
                             itemBuilder: (context, index) {
-                              return Icon(
+                              return const Icon(
                                 Icons.star,
                                 color: Colors.amber,
                               );
@@ -130,10 +130,10 @@ class DetailsPage extends StatelessWidget {
                             itemCount: 5,
                             itemSize: 18,
                             rating: voteraverage! / 2,
-                            unratedColor: Color.fromARGB(255, 78, 78, 78),
+                            unratedColor: const Color.fromARGB(255, 78, 78, 78),
                           ),
                           Text(
-                            'From ${votercount} users',
+                            'From $votercount users',
                             style: GoogleFonts.montserrat(
                                 color: Colors.white, fontSize: 12),
                           )
@@ -149,9 +149,9 @@ class DetailsPage extends StatelessWidget {
                         },
                         child: CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color.fromARGB(255, 132, 131, 131)
+                          backgroundColor: const Color.fromARGB(255, 132, 131, 131)
                               .withOpacity(0.4),
-                          child: Icon(
+                          child: const Icon(
                             Icons.arrow_back,
                             color: Color.fromARGB(255, 0, 0, 0),
                           ),

@@ -7,7 +7,7 @@ import 'package:themovieapp/model/movie_model.dart';
 import 'package:themovieapp/views/details_page.dart';
 
 class MovieCardWidget extends StatelessWidget {
-   MovieCardWidget({
+   const MovieCardWidget({
     super.key,
     required this.movies,
 
@@ -43,7 +43,7 @@ class MovieCardWidget extends StatelessWidget {
                           width: width*0.44,
                           height: height*0.27,
                           decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 2, 11, 49),
+                            color: const Color.fromARGB(255, 2, 11, 49),
                             borderRadius: BorderRadius.circular(19),
                             image: DecorationImage(
                               image: NetworkImage('${ApiConstants().imageUrl}${movie.posterPath}'),
@@ -58,7 +58,7 @@ class MovieCardWidget extends StatelessWidget {
                       height: height*0.08,
                       decoration: BoxDecoration(
                         color: Colors.grey[900]!.withOpacity(0.5),
-                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))),
+                        borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))),
                         child: SingleChildScrollView(
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),

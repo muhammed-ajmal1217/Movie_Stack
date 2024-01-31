@@ -14,14 +14,14 @@ class SearchProvider extends ChangeNotifier {
     if (query.isNotEmpty) {
       try {
         final searchUrl =
-            "${apiConstants.search}=${query}&${apiConstants.apiKey}";
+            "${apiConstants.search}=$query&${apiConstants.apiKey}";
         List<MovieModel> movies =
             await apiService.searchMovie(searchurl: searchUrl);
 
         searchResults = movies;
         notifyListeners();
       } catch (e) {
-        print("Error: $e");
+        Exception(e);
       }
     } else {
       searchResults = [];

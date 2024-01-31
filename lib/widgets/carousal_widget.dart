@@ -32,7 +32,7 @@ class CarousalWidget extends StatelessWidget {
             aspectRatio: 16 / 9,
             autoPlayCurve: Curves.fastOutSlowIn,
             enableInfiniteScroll: true,
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayAnimationDuration: const Duration(milliseconds: 800),
             viewportFraction: 0.8,
           ),
           disableGesture: true,
@@ -69,7 +69,7 @@ class CarousalWidget extends StatelessWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 2, 11, 49),
+                              color: const Color.fromARGB(255, 2, 11, 49),
                                 borderRadius:
                                     BorderRadius.circular(15),
                                 image: DecorationImage(
@@ -99,9 +99,9 @@ class CarousalWidget extends StatelessWidget {
                 width: 400,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(255, 2, 11, 49),
+                  color: const Color.fromARGB(255, 2, 11, 49),
                 ),
-                child: Center(child: CircularProgressIndicator()),
+                child: const Center(child: CircularProgressIndicator()),
               );
             }
           },

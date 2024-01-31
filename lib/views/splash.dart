@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:themovieapp/helpers/colors.dart';
 import 'package:themovieapp/helpers/spacing.dart';
 import 'package:themovieapp/helpers/texts.dart';
@@ -11,14 +10,14 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 2, 6, 48),
+      backgroundColor: const Color.fromARGB(255, 2, 6, 48),
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
           Container(
             height: double.infinity,
             width: double.infinity,
-            decoration: BoxDecoration(image: DecorationImage(
+            decoration: const BoxDecoration(image: DecorationImage(
               image: AssetImage('assets/splash4.jpg'),
               fit: BoxFit.cover,
               ),),
@@ -31,9 +30,9 @@ class SplashScreen extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomLeft,
                 colors: [
-                Color.fromARGB(255, 2, 6, 48).withOpacity(0.5),
-                Color.fromARGB(255, 2, 6, 48).withOpacity(0.9),
-                Color.fromARGB(255, 2, 6, 48)
+                const Color.fromARGB(255, 2, 6, 48).withOpacity(0.5),
+                const Color.fromARGB(255, 2, 6, 48).withOpacity(0.9),
+                const Color.fromARGB(255, 2, 6, 48)
               ])
             ),
           ),
@@ -59,7 +58,7 @@ class SplashScreen extends StatelessWidget {
                           child: InkWell(
                             child: Container(
                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
-                            color: Color.fromARGB(255, 2, 6, 48).withOpacity(0.8),
+                            color: const Color.fromARGB(255, 2, 6, 48).withOpacity(0.8),
                             ),
                             child: Center(child: splashTexts(text: 'Lets Start',fontSize: 15),),
                             ),

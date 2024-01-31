@@ -21,16 +21,16 @@ class CastListBuilderWidget extends StatelessWidget {
     return FutureBuilder(
         future: ApiService().getCasts(
             castsUrl:
-                '${apiconst.base}/${type}/${id}${apiconst.castendPoint}${apiconst.apiKey}'),
+                '${apiconst.base}/$type/$id${apiconst.castendPoint}${apiconst.apiKey}'),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasError) {
             return Center(child: Text('Error${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(
+            return const Center(
               child: Text('Data is not Available',style: TextStyle(color: Colors.white)),
             );
           } else {

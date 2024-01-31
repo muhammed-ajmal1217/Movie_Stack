@@ -37,7 +37,7 @@ class CastCardWidget extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: CircleAvatar(
-                        backgroundColor: Color.fromARGB(255, 2, 11, 49),
+                        backgroundColor: const Color.fromARGB(255, 2, 11, 49),
                         radius: 45,
                         foregroundImage: NetworkImage(
                             '${ApiConstants().imageUrl}${casts.profilePath}'),

@@ -11,7 +11,7 @@ class HomeProvider extends ChangeNotifier{
       List<MovieModel> movieResults = await movieApiService.getMovies(apiUrl: "${ApiConstants().trending}${ApiConstants().apiKey}");
         movies = movieResults;
     } catch (error) {
-      print('Error fetching movies: $error');
+      throw Exception(error);
     }
     notifyListeners();
   }

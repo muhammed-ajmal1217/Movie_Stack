@@ -40,12 +40,12 @@ class MovieList extends StatelessWidget {
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return Center(
+                          return const Center(
                             child: CircularProgressIndicator(),
                           );
                         } else if (snapshot.connectionState ==
                             ConnectionState.none) {
-                          return Center(
+                          return const Center(
                             child: Text('No data available'),
                           );
                         } else {
@@ -80,7 +80,7 @@ class MovieList extends StatelessWidget {
                                           height: height*0.18,
                                           width: width*0.27,
                                           decoration: BoxDecoration(
-                                            color: Color.fromARGB(255, 2, 11, 49),
+                                            color: const Color.fromARGB(255, 2, 11, 49),
                                             borderRadius: BorderRadius.circular(14),
                                             image: DecorationImage(
                                               image: NetworkImage(
@@ -100,7 +100,7 @@ class MovieList extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            '${movies.title!}',
+                                            movies.title!,
                                             style: GoogleFonts.montserrat(
                                               color: Colors.white,
                                               fontSize: 15,
@@ -111,7 +111,7 @@ class MovieList extends StatelessWidget {
                                           spacingHeight(10),
                                           RatingBarIndicator(
                                             itemBuilder: (context, index) {
-                                              return Icon(
+                                              return const Icon(
                                                 Iconsax.star,
                                                 color: Colors.amber,
                                               );
@@ -120,7 +120,7 @@ class MovieList extends StatelessWidget {
                                             itemSize: 12,
                                             rating: movies.voteAverage! / 2,
                                             unratedColor:
-                                                Color.fromARGB(255, 78, 78, 78),
+                                                const Color.fromARGB(255, 78, 78, 78),
                                           ),
                                           spacingHeight(10),
                                           Text(
@@ -155,7 +155,7 @@ class MovieList extends StatelessWidget {
                             },
                             itemCount: movie.length,
                             separatorBuilder: (context, index) {
-                              return Divider(
+                              return const Divider(
                                 color: Colors.white,
                                 thickness: 0.2,
                               );

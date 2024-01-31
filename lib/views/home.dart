@@ -12,6 +12,7 @@ import 'package:themovieapp/widgets/movielist_builder_widget.dart';
 import 'package:themovieapp/widgets/tvlist_builder_widget.dart';
 
 class HomePage extends StatefulWidget {
+  // ignore: use_key_in_widget_constructors
   const HomePage({Key? key});
 
   @override
@@ -48,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         width: 50,
                         height: 50,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage(
                                     'assets/video-play-4-24 (1).png'))),

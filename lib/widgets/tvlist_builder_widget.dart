@@ -17,14 +17,14 @@ class TvListBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<MovieModel>>(
-                future: tvApiService.getMovies(apiUrl: '${apiUrl}${ApiConstants().apiKey}'),
+                future: tvApiService.getMovies(apiUrl: '$apiUrl${ApiConstants().apiKey}'),
                 builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return Text('No Tv Series Available');
+                  return const Text('No Tv Series Available');
                 } else {
                   List<MovieModel> onTheAirList = snapshot.data!;
                   return TvCardWidget(movies: onTheAirList);

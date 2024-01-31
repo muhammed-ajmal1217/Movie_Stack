@@ -4,7 +4,6 @@ import 'package:themovieapp/controller/bottom_bar_provider.dart';
 import 'package:themovieapp/controller/home_provider.dart';
 import 'package:themovieapp/controller/search_provider.dart';
 import 'package:themovieapp/views/splash.dart';
-import 'package:themovieapp/widgets/bottom_bar.dart';
 
 void main(){
   runApp(const MyApp());
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context)=>SearchProvider()),
         ChangeNotifierProvider(create: (context)=>BottomBarProvider()),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
       ),
