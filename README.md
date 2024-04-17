@@ -8,7 +8,7 @@ for effortless navigation and exploration of the extensive movie database.
 
 ## Features
 1. **Minimalist Design**: The app has a minimalist design approach, focusing on simplicity and ease of use for users.
-2. **Movie Companion**: OThe primary purpose of the app is to serve as a companion for movie enthusiasts, offering detailed information about films and actor profiles.
+2. **Movie Companion**: The primary purpose of the app is to serve as a companion for movie enthusiasts, offering detailed information about films and actor profiles.
 3. **TMDB Integration**: The app seamlessly integrates with The Movie Database (TMDB) API, allowing it to retrieve comprehensive data about movies and actors from TMDB's extensive database.
 4. **Detailed Information**: Users can access detailed information about movies, including synopses, cast and crew details, ratings, release dates, and more. Similarly, actor profiles provide insights into the careers and filmography of various actors.
 5. **Search Functionality**: The app emphasizes streamlined movie discovery, enabling users to easily explore the vast collection of movies available on TMDB.
